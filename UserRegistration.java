@@ -30,6 +30,17 @@ public class UserRegistration {
 		m = p.matcher(lastname);
 		return m.matches();
 	}
+	// UC3 Method to validate the email address
+	public boolean isvalidemail(String email) 
+	{
+		Pattern p;
+		Matcher m;
+		//Regex to check valid email address
+		String  regex = "^([a-zA-Z0-9.])+([0-9a-zA-Z]{0,1}+@([a-zA-Z0-9.])+[a-zA-Z]{2,3})+([a-z]{0,2}){0,1}$";
+		p = Pattern.compile(regex);
+		m = p.matcher(email);
+		return m.matches();
+	}
 	public static void main(String[] args) 
 	{
 		
@@ -44,7 +55,14 @@ public class UserRegistration {
 		System.out.println("Enter a Last Name :");
 		String lastname = sc.nextLine();
 		
-		System.out.println("Given Last Name is :"+user.isvalidfirstname(lastname));
+		System.out.println("Given Last Name is :"+user.isvalidlastname(lastname));
+		
+		System.out.println("Enter a Email Address :");
+		String email = sc.nextLine();
+		
+		System.out.println("Given Email Address is :"+user.isvalidemail(email));
+		
+		
 		
 	}
 
