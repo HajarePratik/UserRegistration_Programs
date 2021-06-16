@@ -41,6 +41,17 @@ public class UserRegistration {
 		m = p.matcher(email);
 		return m.matches();
 	}
+	// UC4 Method to validate the mobile number
+	public boolean isvalidmobileno(String mobileno) 
+	{
+		Pattern p;
+		Matcher m;
+		//Regex to check valid mobile number
+		String  regex = "(0|91)?\\s([7-9][0-9]{9})";
+		p = Pattern.compile(regex);
+		m = p.matcher(mobileno);
+		return m.matches();
+	}
 	public static void main(String[] args) 
 	{
 		
@@ -61,6 +72,12 @@ public class UserRegistration {
 		String email = sc.nextLine();
 		
 		System.out.println("Given Email Address is :"+user.isvalidemail(email));
+		
+		
+		System.out.println("Enter a Mobile No :");
+		String mobileno = sc.nextLine();
+		
+		System.out.println("Given Mobile No is :"+user.isvalidmobileno(mobileno));
 		
 		
 		
