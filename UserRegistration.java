@@ -30,6 +30,7 @@ public class UserRegistration {
 		m = p.matcher(lastname);
 		return m.matches();
 	}
+	
 	public static void main(String[] args) 
 	{
 		
@@ -44,7 +45,9 @@ public class UserRegistration {
 		System.out.println("Enter a Last Name :");
 		String lastname = sc.nextLine();
 		
-		System.out.println("Given Last Name is :"+user.isvalidfirstname(lastname));
+		System.out.println("Given Last Name is :"+user.isvalidlastname(lastname));
+		
+		
 		
 	}
 
