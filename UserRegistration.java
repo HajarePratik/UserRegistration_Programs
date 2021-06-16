@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 	
-	// Method to validate the firstname
+	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
 		Pattern p;
@@ -19,7 +19,17 @@ public class UserRegistration {
 		return m.matches();
 	}
 	
-	
+	// UC2 Method to validate the lastname
+	public boolean isvalidlastname(String lastname) 
+	{
+		Pattern p;
+		Matcher m;
+		//Regex to check valid lastname
+		String  regex = "^[A-Z]{1}[a-z]{2,}";
+		p = Pattern.compile(regex);
+		m = p.matcher(lastname);
+		return m.matches();
+	}
 	public static void main(String[] args) 
 	{
 		
@@ -30,6 +40,11 @@ public class UserRegistration {
 		String firstname = sc.nextLine();
 		
 		System.out.println("Given First Name is :"+user.isvalidfirstname(firstname));
+		
+		System.out.println("Enter a Last Name :");
+		String lastname = sc.nextLine();
+		
+		System.out.println("Given Last Name is :"+user.isvalidfirstname(lastname));
 		
 	}
 
