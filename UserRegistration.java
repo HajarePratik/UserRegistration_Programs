@@ -1,5 +1,6 @@
 package com.bridgelabz.user_registration_programs;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,12 +33,12 @@ public class UserRegistration {
 	}
 	
 	// UC3 Method to validate the email address
-	public boolean isvalidemail(String email) 
+	public static boolean isvalidemail(String email) 
 	{
 		Pattern p;
 		Matcher m;
 		//Regex to check valid email address
-		String  regex = "^([a-zA-Z0-9.])+([0-9a-zA-Z]{0,1}+@([a-zA-Z0-9.])+[a-zA-Z]{2,3})+([a-z]{0,2}){0,1}$";
+		String  regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";	
 		p = Pattern.compile(regex);
 		m = p.matcher(email);
 		return m.matches();
@@ -75,6 +76,20 @@ public class UserRegistration {
 		m = p.matcher(password);
 		return m.matches();
 	}
+	
+	// UC9 Method to validate all the types of email
+	public static void emailslist(String email) 
+	{
+		
+			ArrayList<String> arr = new ArrayList<String>();
+			arr.add(email);
+			for (int i=0;i<arr.size();i++) 
+			{
+				System.out.println(arr.get(i)+":"+isvalidemail(arr.get(i)));
+			}
+	}
+		
+	
 	public static void main(String[] args) 
 	{
 		
@@ -107,6 +122,31 @@ public class UserRegistration {
 		
 		System.out.println("Given Passsword is :"+user.isvalidpassword(password));
 		
+		// 8 valid emails
+		
+		emailslist("abc@yahoo.com");
+		emailslist("abc-100@yahoo.com");
+		emailslist("abc.100@yahoo.com");
+		emailslist("abc111@abc.com");
+		emailslist("abc-100@abc.net");
+		emailslist("abc.100@abc.com.au");
+		emailslist("abc@1.com");
+		emailslist("abc@gmail.com.com");
+		emailslist("abc+100@gmail.com");
+        
+		// 12 invalid emails
+		emailslist("abc@.com.my");
+		emailslist("abc123@gmail.a");
+		emailslist("abc123@.com");
+		emailslist("abc123@.com.com");
+		emailslist(".abc@abc.com");
+		emailslist("abc()*@gmail.com");
+		emailslist("abc@%*.com");
+		emailslist("abc..2002@gmail.com");
+		emailslist("abc.@gmail.com");
+		emailslist("abc@abc@gmail.com");
+		emailslist("abc@gmail.com.1a");
+		emailslist("abc@gmail.com.aa.au");
 	}
 
 }
