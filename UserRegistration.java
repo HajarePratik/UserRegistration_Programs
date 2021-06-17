@@ -63,14 +63,14 @@ public class UserRegistration {
 	 * 
 	 * UC7 Rule 3 : should have atleast one number
 	 * 
-	 * 
+	 * UC8 Rule 4 : should have atleast one special character
 	 */
 	public boolean isvalidpassword(String password) 
 	{
 		Pattern p;
 		Matcher m;
 		//Regex to check valid password
-		String  regex = "^[a-zA-Z0-9]{0,8}$";
+		String  regex = "^[a-zA-Z0-9]+[@#$%&*_+=!?]{0,8}$";
 		p = Pattern.compile(regex);
 		m = p.matcher(password);
 		return m.matches();
