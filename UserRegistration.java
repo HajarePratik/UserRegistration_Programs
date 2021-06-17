@@ -61,6 +61,8 @@ public class UserRegistration {
 	 * 
 	 * UC6 Rule 2 : should have atleast one uppercase letter
 	 * 
+	 * UC7 Rule 3 : should have atleast one number
+	 * 
 	 * 
 	 */
 	public boolean isvalidpassword(String password) 
@@ -68,7 +70,7 @@ public class UserRegistration {
 		Pattern p;
 		Matcher m;
 		//Regex to check valid password
-		String  regex = "^[a-zA-Z]{0,8}$";
+		String  regex = "^[a-zA-Z0-9]{0,8}$";
 		p = Pattern.compile(regex);
 		m = p.matcher(password);
 		return m.matches();
