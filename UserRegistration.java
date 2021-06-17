@@ -58,13 +58,17 @@ public class UserRegistration {
 	/* 
 	 * UC5 Method to validate the password :
 	 * Rule 1 : should have atleast 8 characters
+	 * 
+	 * UC6 Rule 2 : should have atleast one uppercase letter
+	 * 
+	 * 
 	 */
 	public boolean isvalidpassword(String password) 
 	{
 		Pattern p;
 		Matcher m;
-		//Regex to check valid mobile number
-		String  regex = "^[a-z]{0,8}$";
+		//Regex to check valid password
+		String  regex = "^[a-zA-Z]{0,8}$";
 		p = Pattern.compile(regex);
 		m = p.matcher(password);
 		return m.matches();
