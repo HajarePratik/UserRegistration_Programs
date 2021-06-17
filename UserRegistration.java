@@ -30,6 +30,7 @@ public class UserRegistration {
 		m = p.matcher(lastname);
 		return m.matches();
 	}
+	
 	// UC3 Method to validate the email address
 	public boolean isvalidemail(String email) 
 	{
@@ -41,6 +42,7 @@ public class UserRegistration {
 		m = p.matcher(email);
 		return m.matches();
 	}
+	
 	// UC4 Method to validate the mobile number
 	public boolean isvalidmobileno(String mobileno) 
 	{
@@ -50,6 +52,21 @@ public class UserRegistration {
 		String  regex = "(0|91)?\\s([7-9][0-9]{9})";
 		p = Pattern.compile(regex);
 		m = p.matcher(mobileno);
+		return m.matches();
+	}
+	
+	/* 
+	 * UC5 Method to validate the password :
+	 * Rule 1 : should have atleast 8 characters
+	 */
+	public boolean isvalidpassword(String password) 
+	{
+		Pattern p;
+		Matcher m;
+		//Regex to check valid mobile number
+		String  regex = "^[a-z]{0,8}$";
+		p = Pattern.compile(regex);
+		m = p.matcher(password);
 		return m.matches();
 	}
 	public static void main(String[] args) 
@@ -79,7 +96,10 @@ public class UserRegistration {
 		
 		System.out.println("Given Mobile No is :"+user.isvalidmobileno(mobileno));
 		
+		System.out.println("Enter a Password :");
+		String password = sc.nextLine();
 		
+		System.out.println("Given Passsword is :"+user.isvalidpassword(password));
 		
 	}
 
