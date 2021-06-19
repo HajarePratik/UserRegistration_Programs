@@ -16,8 +16,8 @@ public class UserRegistration {
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
-		match = p.matcher(firstname);
-		return m.matches();
+		match = pattern.matcher(firstname);
+		return match.matches();
 	}
 	
 	// UC2 Method to validate the lastname
@@ -26,8 +26,8 @@ public class UserRegistration {
 		//Regex to check valid lastname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
-		match = p.matcher(lastname);
-		return m.matches();
+		match = pattern.matcher(lastname);
+		return match.matches();
 	}
 	
 	public static void main(String[] args) 
