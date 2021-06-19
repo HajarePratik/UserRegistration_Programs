@@ -12,7 +12,6 @@ public class UserRegistration {
 	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-	
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
