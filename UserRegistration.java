@@ -6,51 +6,45 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+	Pattern pattern;
+	Matcher match;
 	
 	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(firstname);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(firstname);
+		return match.matches();
 	}
 	
 	// UC2 Method to validate the lastname
 	public boolean isvalidlastname(String lastname) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid lastname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(lastname);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(lastname);
+		return match.matches();
 	}
 	// UC3 Method to validate the email address
 	public boolean isvalidemail(String email) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid email address
 		String  regex = "^([a-zA-Z0-9.])+([0-9a-zA-Z]{0,1}+@([a-zA-Z0-9.])+[a-zA-Z]{2,3})+([a-z]{0,2}){0,1}$";
-		p = Pattern.compile(regex);
-		m = p.matcher(email);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(email);
+		return match.matches();
 	}
 	// UC4 Method to validate the mobile number
 	public boolean isvalidmobileno(String mobileno) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid mobile number
 		String  regex = "(0|91)?\\s([7-9][0-9]{9})";
-		p = Pattern.compile(regex);
-		m = p.matcher(mobileno);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(mobileno);
+		return match.matches();
 	}
 	public static void main(String[] args) 
 	{
