@@ -6,17 +6,16 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-	
+	Pattern pattern;
+	Matcher match;
 	// Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-		Pattern pattern;
-		Matcher match;
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
-		match = p.matcher(firstname);
-		return m.matches();
+		match = pattern.matcher(firstname);
+		return match.matches();
 	}
 	
 	
