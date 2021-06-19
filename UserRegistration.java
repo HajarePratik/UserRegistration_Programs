@@ -6,28 +6,27 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+	Pattern pattern;
+	Matcher match;
 	
 	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-		Pattern p;
-		Matcher m;
+	
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(firstname);
+		pattern = Pattern.compile(regex);
+		match = p.matcher(firstname);
 		return m.matches();
 	}
 	
 	// UC2 Method to validate the lastname
 	public boolean isvalidlastname(String lastname) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid lastname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(lastname);
+		pattern = Pattern.compile(regex);
+		match = p.matcher(lastname);
 		return m.matches();
 	}
 	
