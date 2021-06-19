@@ -9,6 +9,7 @@ public class UserRegistration {
 
 	Pattern pattern;
 	Matcher match;
+	
 	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
