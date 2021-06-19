@@ -10,12 +10,12 @@ public class UserRegistration {
 	// Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-		Pattern p;
-		Matcher m;
+		Pattern pattern;
+		Matcher match;
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(firstname);
+		pattern = Pattern.compile(regex);
+		match = p.matcher(firstname);
 		return m.matches();
 	}
 	
