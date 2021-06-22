@@ -7,53 +7,47 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-	
+	static Pattern pattern;
+	static Matcher match;
 	// UC1 Method to validate the firstname
 	public boolean isvalidfirstname(String firstname) 
 	{
-		Pattern p;
-		Matcher m;
+		
 		//Regex to check valid firstname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(firstname);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(firstname);
+		return match.matches();
 	}
 	
 	// UC2 Method to validate the lastname
 	public boolean isvalidlastname(String lastname) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid lastname
 		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		p = Pattern.compile(regex);
-		m = p.matcher(lastname);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(lastname);
+		return match.matches();
 	}
 	
 	// UC3 Method to validate the email address
 	public static boolean isvalidemail(String email) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid email address
 		String  regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";	
-		p = Pattern.compile(regex);
-		m = p.matcher(email);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(email);
+		return match.matches();
 	}
 	
 	// UC4 Method to validate the mobile number
 	public boolean isvalidmobileno(String mobileno) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid mobile number
 		String  regex = "(0|91)?\\s([7-9][0-9]{9})";
-		p = Pattern.compile(regex);
-		m = p.matcher(mobileno);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(mobileno);
+		return match.matches();
 	}
 	
 	/* 
@@ -68,13 +62,11 @@ public class UserRegistration {
 	 */
 	public boolean isvalidpassword(String password) 
 	{
-		Pattern p;
-		Matcher m;
 		//Regex to check valid password
 		String  regex = "^[a-zA-Z0-9]+[@#$%&*_+=!?]{0,8}$";
-		p = Pattern.compile(regex);
-		m = p.matcher(password);
-		return m.matches();
+		pattern = Pattern.compile(regex);
+		match = pattern.matcher(password);
+		return match.matches();
 	}
 	
 	// UC9 Method to validate all the types of email
@@ -89,7 +81,6 @@ public class UserRegistration {
 			}
 	}
 		
-	
 	public static void main(String[] args) 
 	{
 		
@@ -123,7 +114,6 @@ public class UserRegistration {
 		System.out.println("Given Passsword is :"+user.isvalidpassword(password));
 		
 		// 8 valid emails
-		
 		emailslist("abc@yahoo.com");
 		emailslist("abc-100@yahoo.com");
 		emailslist("abc.100@yahoo.com");
