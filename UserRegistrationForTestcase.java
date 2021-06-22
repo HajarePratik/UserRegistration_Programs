@@ -3,50 +3,62 @@ package com.bridgelabz.user_registration_programs;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserRegistrationForTestcase {
+public class UserRegistrationForTestcase
+{
 	
 	// UC1 Method to validate the firstname
-	public String isvalidfirstname(String firstname) 
+	public boolean isvalidfirstname(String name) throws UserRegistrationExceptions 
 	{
-		//Regex to check valid firstname
-		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		if (firstname.matches(regex) == true)
-            return "HAPPY";
-        else
-            return "SAD";
+		//Regex to check valid first name
+		String pattern = "(^[A-Z])[A-Za-z]{2,}$";
+		boolean match = regexMatch(name, pattern);
+		
+		if (match == false) 
+		{
+			throw new UserRegistrationExceptions(UserRegistrationExceptions.ExceptionType.NAME_INVALID, "Enter proper first name");
+		} 
+		return match;
 	}
 	
 	// UC2 Method to validate the lastname
-	public String isvalidlastname(String lastname) 
+	public boolean isvalidlastname(String name) throws UserRegistrationExceptions 
 	{
-		//Regex to check valid lastname
-		String  regex = "^[A-Z]{1}[a-z]{2,}";
-		if (lastname.matches(regex) == true)
-            return "HAPPY";
-        else
-            return "SAD";
+		//Regex to check valid last name
+		String pattern = "(^[A-Z])[A-Za-z]{2,}$";
+		boolean match = regexMatch(name, pattern);
+		
+		if (match == false) 
+		{
+			throw new UserRegistrationExceptions(UserRegistrationExceptions.ExceptionType.NAME_INVALID, "Enter proper last name");
+		} 
+		return match;
 	}
 	
 	// UC3 Method to validate the email address
-	public String isvalidemail(String email) 
+	public boolean isvalidemail(String email) throws UserRegistrationExceptions 
 	{
 		//Regex to check valid email address
-		String  regex = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";	
-		if (email.matches(regex) == true)
-            return "HAPPY";
-        else
-            return "SAD";
+		String  pattern = "^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?";	
+		boolean match = regexMatch(email, pattern);
+		
+		if (match == false) 
+		{
+			throw new UserRegistrationExceptions(UserRegistrationExceptions.ExceptionType.EMAIL_INVALID, "Enter proper email");
+		} 
+		return match;
 	}
 	
 	// UC4 Method to validate the mobile number
-	public String isvalidmobileno(String mobileno) 
+	public boolean isvalidmobileno(String mobileno) throws UserRegistrationExceptions
 	{
 		//Regex to check valid mobile number
-		String  regex = "[9]{1}[1]{1}\\s([7-9][0-9]{9})";
-		if (mobileno.matches(regex) == true)
-            return "HAPPY";
-        else
-            return "SAD";
+		String  pattern = "[9]{1}[1]{1}\\s([7-9][0-9]{9})";
+		boolean match = regexMatch(mobileno, pattern);
+		if (match == false) 
+		{
+			throw new UserRegistrationExceptions(UserRegistrationExceptions.ExceptionType.MOBILE_NO_INVALID, "Enter proper mobile no.");
+		} 
+		return match;
 	}
 	
 	/* 
@@ -59,13 +71,23 @@ public class UserRegistrationForTestcase {
 	 * 
 	 * UC8 Rule 4 : should have atleast one special character
 	 */
-	public String isvalidpassword(String password) 
+	public boolean isvalidpassword(String password) throws UserRegistrationExceptions
 	{
 		//Regex to check valid password
-		String  regex = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,12}$";
-		if (password.matches(regex) == true)
-            return "HAPPY";
-        else
-            return "SAD";
+		String  pattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,12}$";
+		boolean match = regexMatch(password, pattern);
+		if (match == false) 
+		{
+			throw new UserRegistrationExceptions(UserRegistrationExceptions.ExceptionType.PASSWORD_INVALID, "Enter proper password");
+		} 
+		return match;
+	}
+	
+	public static boolean regexMatch(String matchContent, String patternString)
+	{  	
+		Pattern pattern = Pattern.compile(patternString);
+	    Matcher match = pattern.matcher(matchContent);
+	    boolean isMatch = match.find();		   
+		return isMatch;
 	}
 }
